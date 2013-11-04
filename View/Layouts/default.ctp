@@ -36,6 +36,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     #header a {
       font-weight: normal;
     }
+
+    .reminder_item {
+      font-size: 1.2em;
+    }
+
   </style>
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script type="text/javascript">
@@ -63,6 +68,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     <?php echo $this->fetch('content'); ?>
   </div>
 </div>
-<?php echo $this->element('sql_dump'); ?>
+<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

@@ -14,9 +14,7 @@ foreach ($reminders as $reminder) {
   $postLink = array(
     'controller' => 'reminders',
     'action'     => 'view',
-    'year'       => date('Y', $postTime),
-    'month'      => date('m', $postTime),
-    'day'        => date('d', $postTime)
+    $reminder['Reminder']['id'],
   );
 
   $bodyText = h(strip_tags($reminder['Reminder']['body']));
@@ -30,10 +28,12 @@ foreach ($reminders as $reminder) {
     )
   );
 
+  $remain = $count_of_complete - $reminder['Reminder']['repeat_count'];
+
   echo $this->Rss->item(
     array(),
     array(
-         'title'       => $reminder['Reminder']['title'],
+         'title'       => $reminder['Reminder']['title'] . '（残り' . $remain . '回）',
          'link'        => $postLink,
          'guid'        => array('url' => $postLink, 'isPermaLink' => 'true'),
          'description' => $bodyText,
